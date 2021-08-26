@@ -22,16 +22,19 @@ if(!isset($_SESSION['id_usuario'])){
 <title>Home</title>
 
 <body>
-    <div class="container">
-
+    <div class="home-container">
+        
         <h2><strong>HOME BEM VINDO ENTROU</strong></h2>
         <a href="singout.php">
-        <input class="btn btn-primary" value="SINGOUT">
-
-        </a>
-      
-
-    </div>
+        <input class="btn btn-primary" name="botaosair" value="SINGOUT">
+        </a><br>
+        <a href="./listaProdutos.php">
+        <input class="btn btn-danger" name="botaoprodutos" value="Produtos">
+        </a><br>
+        <a href="./CLASSES/Produtos.php">
+        <input class="btn btn-dark" name="botaocategorias" value="Categorias">
+        </a><br>
+        </div>
 
 
     
