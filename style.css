@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5{
+    font-family: Telescope, Arial, Helvetica, sans-serif;
+    padding: 5px;    
+}
+
+body{
+    background-position: center;
+    background: linear-gradient(180deg, #0912f3, #00a9f6,  rgba(215, 215, 215,0.5) );
+}
+
+.login-box{
+    max-width: 700px;
+    float: none;
+    margin: 150px auto;
+
+}
+
+.login-left{
+    background: rgba(215, 215, 215,0.5);
+    padding: 30px;
+}
+
+.login-right{
+    color: white;
+    background: black;
+    padding: 30px;
+}
+.container h2{
+    margin-top: 5%;
+    text-align: center;
+}
+
+.form-control{
+    background: transparent;
+}
+
