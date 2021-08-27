@@ -10,6 +10,9 @@ if (!isset($_SESSION['id_usuario'])) {
     $result_produtos = "SELECT * FROM produtos";
     $resultado_produtos = mysqli_query($conection, $result_produtos);
 }
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -27,11 +30,23 @@ if (!isset($_SESSION['id_usuario'])) {
 <title>Projeto Cadastro</title>
 
 <body>
+    <div>
+        <?php
+        if (isset($_SESSION['msgSucesso'])) {
+        ?>
+            <h5 time(500ms) id="msgInsertProduto"><?= $_SESSION['msgSucesso'] ?></h2>
+
+            <?php unset($_SESSION['msgSucesso']);
+        }
+
+            ?>
+
+    </div>
 
     <div class="container justify-center-center">
         <div class="col-md-12 mt-4">
-            <h2 ><strong>PRODUTOS CADASTRADOS</strong></h2>
-           
+            <h2><strong>PRODUTOS CADASTRADOS</strong></h2>
+
             <br>
             <div class="form-group text-start">
                 <a href="insertProduto.php" class="btn btn-primary">Adicionar Produto</a>
@@ -55,43 +70,39 @@ if (!isset($_SESSION['id_usuario'])) {
                             <tbody>
                                 <?php
 
-                            if(!empty($resultado_produtos)){
+                                if (!empty($resultado_produtos)) {
 
 
 
-                                while ($row_usuario = mysqli_fetch_assoc($resultado_produtos)) {
+                                    while ($row_usuario = mysqli_fetch_assoc($resultado_produtos)) {
 
 
-                                    ?>
+                                ?>
                                         <tr>
                                             <td><?php echo  $row_usuario['SKU']; ?></td>
                                             <td><?php echo  $row_usuario['nome']; ?></td>
                                             <td><?php echo $row_usuario['quantidade']; ?></td>
                                             <td><?php echo  $row_usuario['preco']; ?></td>
                                             <td><?php echo  $row_usuario['descricao']; ?></td>
-                                            <td><?php echo  $row_usuario['categoria_id']; ?></td>
+                                            <td><?php echo  $row_usuario['categoria']; ?></td>
                                             <td>
-                                                <a href="editproduto.php?token=<?php echo $key ?>" class="btn btn-primary">EDITAR</a>
+                                                <a href="#" class="btn btn-primary">EDITAR</a>
                                             </td>
                                             <td>
-                                                <a href="deletarproduto.php?token=<?php echo $key ?>" class="btn btn-danger">DELETAR</a>
+                                                <a href="#" class="btn btn-danger">DELETAR</a>
                                             </td>
                                         </tr>
-                                       <?php
-    
-                                            }
-                                   
-                                    
+                                    <?php
 
-
-                            }else{
+                                    }
+                                } else {
+                                    ?>
+                                    <tr>
+                                        <td colspan="8">Banco de dados sem informações inseridas</td>
+                                    </tr>
+                                <?php
+                                }
                                 ?>
-                                <tr>
-                                <td colspan="8">Banco de dados sem informações inseridas</td>
-                            </tr>
-<?php
-                            }
-?>
 
                             </tbody>
                         </table><br>

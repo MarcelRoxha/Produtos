@@ -42,9 +42,9 @@ class Produtos
                 return false;
             } else {
 
-                $sql = $pdo->prepare("INSERT INTO produtos (SKU, nome,preco ,descricao, quantidade, categoria_id) VALUES (:sku, :n, :p, :d, :q, :c)");
-                var_dump($categoria);
-                $category = implode(" ", $categoria);
+                $sql = $pdo->prepare("INSERT INTO produtos (SKU, nome,preco ,descricao, quantidade, categoria) VALUES (:sku, :n, :p, :d, :q, :c)");
+                
+                $category = implode(",", $categoria);
                 
                 
                 $sql->bindValue(":sku", $SKU);
@@ -56,7 +56,7 @@ class Produtos
                 $sql->execute();
                 return true;
 
-                var_dump($category);
+               
             }
             //code...
         } catch (PDOException $e) {
