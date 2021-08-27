@@ -42,21 +42,21 @@ class Produtos
                 return false;
             } else {
 
-                $sql = $pdo->prepare("INSERT INTO produtos (SKU, nome,preco ,descricao, quantidade, categoria_id) VALUES (:sku, :n, :p, :d, :q)");
+                $sql = $pdo->prepare("INSERT INTO produtos (SKU, nome,preco ,descricao, quantidade, categoria_id) VALUES (:sku, :n, :p, :d, :q, :c)");
+                var_dump($categoria);
+                $category = implode(" ", $categoria);
                 
-                $category = $_POST['ckCategoryAdd'];
-                foreach($category as $categorias):
-                   
-                endforeach;
                 
                 $sql->bindValue(":sku", $SKU);
                 $sql->bindValue(":n", $nome);
                 $sql->bindValue(":p", $preco);
                 $sql->bindValue(":d", $descricao);
                 $sql->bindValue(":q", $quant);
-                $sql->bindValue(":c", $categoria);
+                $sql->bindValue(":c", $category);
                 $sql->execute();
                 return true;
+
+                var_dump($category);
             }
             //code...
         } catch (PDOException $e) {
