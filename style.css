@@ -55,3 +55,14 @@ body{
     margin-top: 2%;
    
 }
+.insert-produto{
+    margin: 0 auto;
+    padding: 100px;
+    box-shadow: 5px 5px 10px 5px blue;
+}
+
+.insert-produto button{
+  margin-top: 2%;
+  width: 100%;
+   
+}

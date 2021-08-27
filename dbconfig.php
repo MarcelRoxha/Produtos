@@ -1,9 +1,8 @@
 <?php
-
 $host = "localhost";
 $user = "root";
 $pass = "";
-$dbname = "produtos";
+$dbname = "projetoprodutos";
 
 
 //Conexão ao banco

@@ -7,7 +7,7 @@ if (!isset($_SESSION['id_usuario'])) {
 } else {
 
     include_once("./dbconfig.php");
-    $result_produtos = "SELECT * FROM produto";
+    $result_produtos = "SELECT * FROM produtos";
     $resultado_produtos = mysqli_query($conection, $result_produtos);
 }
 ?>
@@ -34,7 +34,7 @@ if (!isset($_SESSION['id_usuario'])) {
            
             <br>
             <div class="form-group text-start">
-                <a href="insertPD.php" class="btn btn-primary">Adicionar Produto</a>
+                <a href="insertProduto.php" class="btn btn-primary">Adicionar Produto</a>
             </div><br>
             <div class="card border-primary mb-3">
                 <div class="card-body">
@@ -66,10 +66,10 @@ if (!isset($_SESSION['id_usuario'])) {
                                         <tr>
                                             <td><?php echo  $row_usuario['SKU']; ?></td>
                                             <td><?php echo  $row_usuario['nome']; ?></td>
-                                            <td><?php echo $row_usuario['quant']; ?></td>
+                                            <td><?php echo $row_usuario['quantidade']; ?></td>
                                             <td><?php echo  $row_usuario['preco']; ?></td>
                                             <td><?php echo  $row_usuario['descricao']; ?></td>
-                                            <td><?php echo  $row_usuario['categoria']; ?></td>
+                                            <td><?php echo  $row_usuario['categoria_id']; ?></td>
                                             <td>
                                                 <a href="editproduto.php?token=<?php echo $key ?>" class="btn btn-primary">EDITAR</a>
                                             </td>

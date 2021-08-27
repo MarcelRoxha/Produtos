@@ -32,7 +32,7 @@ class Produtos
 
         try {
 
-            $sql = $pdo->prepare("SELECT id FROM produtos WHERE email = :e");
+            $sql = $pdo->prepare("SELECT id FROM produtos WHERE nome = :n");
             
             $sql->bindValue(":n", $nome);
             
@@ -42,8 +42,14 @@ class Produtos
                 return false;
             } else {
 
-                $sql = $pdo->prepare("INSERT INTO usuarios (nome, email,senha) VALUES (:n, :e, :s)");
-                $sql->bindValue(":SKU", $SKU);
+                $sql = $pdo->prepare("INSERT INTO produtos (SKU, nome,preco ,descricao, quantidade, categoria_id) VALUES (:sku, :n, :p, :d, :q)");
+                
+                $category = $_POST['ckCategoryAdd'];
+                foreach($category as $categorias):
+                   
+                endforeach;
+                
+                $sql->bindValue(":sku", $SKU);
                 $sql->bindValue(":n", $nome);
                 $sql->bindValue(":p", $preco);
                 $sql->bindValue(":d", $descricao);
