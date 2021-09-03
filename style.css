@@ -60,17 +60,22 @@ body{
 }
 
 .home-container input{
-    margin-top: 2%;
-   
+    margin-top: 2%;   
 }
 .insert-produto{
+    width: 100%;
     margin: 0 auto;
-    padding: 100px;
-    box-shadow: 5px 5px 10px 5px blue;
+    padding: 100px;    
 }
 
-.insert-produto button{
-  margin-top: 2%;
+.form-control{
   width: 100%;
    
+}
+
+.tituloCadastrarProduto{
+   text-align: center;
+   margin: 20px;
+   font-size: 32px;
+   color: rgba(114, 122, 217,5);
 }

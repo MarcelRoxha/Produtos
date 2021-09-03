@@ -31,15 +31,14 @@ class Categorias
             $sql = $pdo->prepare("SELECT id FROM categorias WHERE nome = :n");
 
             $sql->bindValue(":n", $nome);
-
             $sql->execute();
 
             if ($sql->rowCount() > 0) {
                 return false;
-            } else {
+                        } else {
 
                 $sql = $pdo->prepare("INSERT INTO categorias (codigo, nome) VALUES (:c, :n)");
-                $sql->bindValue(":sku", $codigo);
+                $sql->bindValue(":c", $codigo);
                 $sql->bindValue(":n", $nome);
                 $sql->execute();
                 return true;

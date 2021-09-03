@@ -66,6 +66,7 @@ class Usuarios
                 $dados = $sql->fetch();
                 session_start();
                 $_SESSION['id_usuario'] = $dados['id'];
+                echo $_SESSION['id_usuario'];
                 return true;
             } else {
 

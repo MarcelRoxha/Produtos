@@ -42,7 +42,7 @@ class Produtos
                 return false;
             } else {
 
-                $sql = $pdo->prepare("INSERT INTO produtos (SKU, nome,preco ,descricao, quantidade, categoria) VALUES (:sku, :n, :p, :d, :q, :c)");
+                $sql = $pdo->prepare("INSERT INTO produtos (SKU, nome,preco ,descricao, quantidade, categorias) VALUES (:sku, :n, :p, :d, :q, :c)");
                 
                 $category = implode(",", $categoria);
                 

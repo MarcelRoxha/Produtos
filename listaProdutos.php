@@ -49,8 +49,13 @@ if (!isset($_SESSION['id_usuario'])) {
 
             <br>
             <div class="form-group text-start">
-                <a href="insertProduto.php" class="btn btn-primary">Adicionar Produto</a>
-            </div><br>
+            <a href="Home.php" class="btn btn-info">HOME</a>
+                <a href="insertProduto.php" class="btn btn-primary">ADICIONAR PRODUTO</a>
+                
+
+            </div>
+            <br>
+
             <div class="card border-primary mb-3">
                 <div class="card-body">
                     <div class="justify-center-center">
@@ -84,7 +89,7 @@ if (!isset($_SESSION['id_usuario'])) {
                                             <td><?php echo $row_usuario['quantidade']; ?></td>
                                             <td><?php echo  $row_usuario['preco']; ?></td>
                                             <td><?php echo  $row_usuario['descricao']; ?></td>
-                                            <td><?php echo  $row_usuario['categoria']; ?></td>
+                                            <td><?php echo  $row_usuario['categorias']; ?></td>
                                             <td>
                                                 <a href="#" class="btn btn-primary">EDITAR</a>
                                             </td>

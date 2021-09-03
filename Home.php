@@ -31,7 +31,7 @@ if(!isset($_SESSION['id_usuario'])){
         <a href="./listaProdutos.php">
         <input class="btn btn-danger" name="botaoprodutos" value="Produtos">
         </a><br>
-        <a href="./CLASSES/Produtos.php">
+        <a href="./listaCategoria.php">
         <input class="btn btn-dark" name="botaocategorias" value="Categorias">
         </a><br>
         </div>
