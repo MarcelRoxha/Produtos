@@ -101,7 +101,7 @@ if (!isset($_SESSION['id_usuario'])) {
                                                 <a href="editproduto.php?token=<?php echo $row_usuario['id']?>"class="btn btn-primary">EDITAR</a>
                                             </td>
                                             <td>
-                                                <a href="#" class="btn btn-danger">DELETAR</a>
+                                                <a href="deletarProduto.php?token=<?php echo $row_usuario['id']?>" class="btn btn-danger">DELETAR</a>
                                             </td>
                                         </tr>
                                     <?php
