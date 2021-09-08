@@ -65,6 +65,47 @@ class Produtos
         }
     }
 
+    public function carregarArquivoCSV($SKU, $nome, $preco, $descricao, $quant, $categoria, $foto)
+    {
+        global $pdo;
+
+        //Verificar se user já tem cadastro
+
+        try {
+
+            $sql = $pdo->prepare("SELECT id FROM produtos WHERE nome = :n");
+            
+            $sql->bindValue(":n", $nome);
+            
+            $sql->execute();
+
+            if ($sql->rowCount() > 0) {
+                return false;
+            } else {
+
+                $sql = $pdo->prepare("INSERT INTO produtos (nome, SKU, descricao ,quantidade, preco, categorias, foto) VALUES (:n, :sku, :d, :q, :p, :c, :f)");
+                
+               
+                
+                
+                $sql->bindValue(":sku", $SKU);
+                $sql->bindValue(":n", $nome);
+                $sql->bindValue(":p", $preco);
+                $sql->bindValue(":d", $descricao);
+                $sql->bindValue(":q", $quant);
+                $sql->bindValue(":c", $categoria);
+                $sql->bindValue(":f", $foto);
+                $sql->execute();
+                return true;
+
+               
+            }
+            //code...
+        } catch (PDOException $e) {
+            $msgError = $e->getMessage();
+        }
+    }
+
     public function listar()
     {
         global $pdo;
@@ -111,6 +152,39 @@ class Produtos
            
 
 
+            //code...
+        } catch (PDOException $e) {
+            $msgError = $e->getMessage();
+        }
+    }
+
+
+    public function atualizar($id ,$SKU, $nome, $preco, $descricao, $quant, $categoria, $foto)
+    {
+        global $pdo;
+
+        //Verificar se user já tem cadastro
+
+        try {
+
+
+                $sql  = "UPDATE produtos SET SKU=$SKU, nome='$nome',preco='$preco' ,descricao='$descricao', quantidade='$quant', categorias='$categoria', foto='$foto' WHERE id='$id'";
+                
+                $resultado_update = mysqli_query($pdo, $sql);
+
+                if($resultado_update){
+
+                    $_SESSION['msgSucesso'] = "sucesso ao cadastrar";
+                    header("location: listaProdutos.php");
+                    echo $_SESSION['msgSucesso'];
+
+                }
+                
+                
+              
+                return true;
+
+          
             //code...
         } catch (PDOException $e) {
             $msgError = $e->getMessage();

@@ -49,9 +49,10 @@ if (!isset($_SESSION['id_usuario'])) {
 
             <br>
             <div class="form-group text-start">
-            <a href="Home.php" class="btn btn-info">HOME</a>
+                <a href="Home.php" class="btn btn-info">HOME</a>
                 <a href="insertProduto.php" class="btn btn-primary">ADICIONAR PRODUTO</a>
-                
+                <a href="carregarArquivoCSV.php" class="btn btn-secondary">CARREGAR ARQUIVO CSV</a>
+
 
             </div>
             <br>
@@ -87,17 +88,17 @@ if (!isset($_SESSION['id_usuario'])) {
                                         <tr>
                                             <td><?php echo  $row_usuario['SKU']; ?></td>
                                             <td>
-                                            <img style="width: 100px; height: 100px" src="<?php echo "./imagens/". $row_usuario['foto']; ?>">
-                                            
-                                        
-                                        </td>
+                                                <img style="width: 100px; height: 100px" src="<?php echo "./imagens/" . $row_usuario['foto']; ?>">
+
+
+                                            </td>
                                             <td><?php echo  $row_usuario['nome']; ?></td>
                                             <td><?php echo $row_usuario['quantidade']; ?></td>
                                             <td><?php echo  $row_usuario['preco']; ?></td>
                                             <td><?php echo  $row_usuario['descricao']; ?></td>
                                             <td><?php echo  $row_usuario['categorias']; ?></td>
                                             <td>
-                                                <a href="#" class="btn btn-primary">EDITAR</a>
+                                                <a href="editproduto.php?token=<?php echo $row_usuario['id']?>"class="btn btn-primary">EDITAR</a>
                                             </td>
                                             <td>
                                                 <a href="#" class="btn btn-danger">DELETAR</a>
