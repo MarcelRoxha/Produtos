@@ -24,7 +24,7 @@ class Produtos
         }
     }
 
-    public function cadastrar($SKU, $nome, $preco, $descricao, $quant, $categoria)
+    public function cadastrar($SKU, $nome, $preco, $descricao, $quant, $categoria, $foto)
     {
         global $pdo;
 
@@ -42,7 +42,7 @@ class Produtos
                 return false;
             } else {
 
-                $sql = $pdo->prepare("INSERT INTO produtos (SKU, nome,preco ,descricao, quantidade, categorias) VALUES (:sku, :n, :p, :d, :q, :c)");
+                $sql = $pdo->prepare("INSERT INTO produtos (SKU, nome,preco ,descricao, quantidade, categorias, foto) VALUES (:sku, :n, :p, :d, :q, :c, :f)");
                 
                 $category = implode(",", $categoria);
                 
@@ -53,6 +53,7 @@ class Produtos
                 $sql->bindValue(":d", $descricao);
                 $sql->bindValue(":q", $quant);
                 $sql->bindValue(":c", $category);
+                $sql->bindValue(":f", $foto);
                 $sql->execute();
                 return true;
 

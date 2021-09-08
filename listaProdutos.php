@@ -63,6 +63,7 @@ if (!isset($_SESSION['id_usuario'])) {
                             <thead class="justify-center-center">
                                 <tr>
                                     <th>Codigo(SKU)</th>
+                                    <th>Foto</th>
                                     <th>Nome</th>
                                     <th>Quantidade</th>
                                     <th>Preco</th>
@@ -85,6 +86,11 @@ if (!isset($_SESSION['id_usuario'])) {
                                 ?>
                                         <tr>
                                             <td><?php echo  $row_usuario['SKU']; ?></td>
+                                            <td>
+                                            <img style="width: 100px; height: 100px" src="<?php echo "./imagens/". $row_usuario['foto']; ?>">
+                                            
+                                        
+                                        </td>
                                             <td><?php echo  $row_usuario['nome']; ?></td>
                                             <td><?php echo $row_usuario['quantidade']; ?></td>
                                             <td><?php echo  $row_usuario['preco']; ?></td>
